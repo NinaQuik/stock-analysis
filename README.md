@@ -15,9 +15,15 @@ Timers were added to measure elapsed time and code performance.
 
 ## Results
 
-The analysis should that the twelve stocks were considerably more successful in 2017 than 2018. 
+The analysis showed that the twelve stocks were considerably more successful in 2017 than 2018. Only one stock, TERP, had a negative return in 2017. In contrast, only two stocks, ENPH and RUN, had positive returns in 2018.  
 
-The refactored code also showed performance gains.  It took roughly .30 seconds to run the original macro for either year 2017 or 2018.  In comparison, the timing results for the refactored VBA is almost 4 times faster.
+The refactored code also showed performance gains.  It took roughly .30 seconds to run the original macro for either year 2017 or 2018.  In comparison, the timing results for the refactored VBA is almost 4 times faster at an average of .08 seconds.
+
+The elapsed time of the original macro - roughly .30 seconds:
+
+![Screenshot of timer - not refactored](/Resources/Original_Timing.png)
+
+Compared the the elapsed time for the refactored VBA:
 
 ![Screenshot of timer - year 2017](/Resources/VBA_Challenge_2017.png)
 
