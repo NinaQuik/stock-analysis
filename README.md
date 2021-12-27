@@ -29,5 +29,22 @@ Compared the the elapsed time for the refactored VBA:
 
 ![Screenshot of timer - year 2018](/Resources/VBA_Challenge_2018.png)
 
+## Summary
+
+The refactored code was noticeably faster than the original VBA macro.  A chief contributor to the elapsed time in the original macro is the nested for loop.
+
+You can see in this code that the entire row count of the worksheet is looped over 12 times.
+
+'''
+   'Outer loop through tickers    For i = 0 To 11        ticker = tickers(i)        totalVolume = 0        Worksheets(yearValue).Activate                'Inner loop through each row for each ticker        For j = 2 To RowCount
+
+            'get total volume for current ticker            If Cells(j, 1).Value = ticker Then                totalVolume = totalVolume + Cells(j, 8).Value            End If                        'get starting price for current ticker            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then                startingPrice = Cells(j, 6).Value            End If                        'get ending price for current ticker               If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then                endingPrice = Cells(j, 6).Value            End If                   Next j        
+'''
+
+In comparison, the refactored macro used an array to store the values for each ticker, thus allowing the loop to only run once through all the rows in the worksheet
+
+If more stocks are added, the number of times that the rowCount is looped over would continue to increase in the original macro thus slowing elapsed time even more.  The refactored code would handle an increase in stocks over time with less performance degradation.
+
+Refactoring code is beneficial in that it improves on the design, performance and readability of the software.  Refactoring can be risky however, if the code isn't well documented or if there are insufficient test cases and functional requirements. For this exercise there were no obvious disadvantages in refactoring the code because the script was well commented and the expected results were clear and understood.
 
 
