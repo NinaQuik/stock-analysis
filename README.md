@@ -35,11 +35,33 @@ The refactored code was noticeably faster than the original VBA macro.  A chief 
 
 You can see in this code that the entire row count of the worksheet is looped over 12 times.
 
-'''
-   'Outer loop through tickers    For i = 0 To 11        ticker = tickers(i)        totalVolume = 0        Worksheets(yearValue).Activate                'Inner loop through each row for each ticker        For j = 2 To RowCount
+```
+   'Outer loop through tickers
+    For i = 0 To 11
+        ticker = tickers(i)
+        totalVolume = 0
+        Worksheets(yearValue).Activate
+        
+        'Inner loop through each row for each ticker
+        For j = 2 To RowCount
 
-            'get total volume for current ticker            If Cells(j, 1).Value = ticker Then                totalVolume = totalVolume + Cells(j, 8).Value            End If                        'get starting price for current ticker            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then                startingPrice = Cells(j, 6).Value            End If                        'get ending price for current ticker               If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then                endingPrice = Cells(j, 6).Value            End If                   Next j        
-'''
+            'get total volume for current ticker
+            If Cells(j, 1).Value = ticker Then
+                totalVolume = totalVolume + Cells(j, 8).Value
+            End If
+            
+            'get starting price for current ticker
+            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+                startingPrice = Cells(j, 6).Value
+            End If
+            
+            'get ending price for current ticker
+               If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+                endingPrice = Cells(j, 6).Value
+            End If
+            
+       Next j        
+```
 
 In comparison, the refactored macro used an array to store the values for each ticker, thus allowing the loop to only run once through all the rows in the worksheet
 
