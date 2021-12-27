@@ -6,7 +6,7 @@ This project uses VBA to analyze the performance of twelve stocks during years 2
 
 ### Purpose
 
-The purpose of this challenge is to improve upon the code originally written during the module coursework.  The original macro utilized nested for loops and re-used the same variables for each of the twelve stocks.  The final results were accurate, however the solution may not scale for thousands of stocks.  
+The purpose of this challenge is to improve upon the code originally written during the module coursework.  The original macro utilized nested for loops and re-used the same variables for each of the twelve stocks.  The final results were accurate; however the solution may not scale for thousands of stocks.  
 
 This challenge refactored the code to create an array of variables for each stock thus bypassing the need for a nested for loop.
 
@@ -67,6 +67,6 @@ In comparison, the refactored macro used an array to store the values for each t
 
 If more stocks are added, the number of times that the rowCount is looped over would continue to increase in the original macro thus slowing elapsed time even more.  The refactored code would handle an increase in stocks over time with less performance degradation.
 
-Refactoring code is beneficial in that it improves on the design, performance and readability of the software.  Refactoring can be risky however, if the code isn't well documented or if there are insufficient test cases and functional requirements. For this exercise there were no obvious disadvantages in refactoring the code because the script was well commented and the expected results were clear and understood.
+Refactoring code is beneficial in that it improves on the design, performance and readability of the software.  Refactoring can be risky however, if the code isn't well documented or if there are insufficient test cases and functional requirements. For this exercise there were no obvious disadvantages in refactoring the code because the script was well commented, and the expected results were clear and understood.
 
 
